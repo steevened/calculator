@@ -1,0 +1,119 @@
+:root {
+  --color-bg: #cbd5d8;
+  --color-font: #f3ebeb;
+  --color-display-frame: #212a35;
+  --color-border: #8f99a5;
+  --color-display: #c1cccc;
+  --color-font-display: #1f222cc0;
+  --color-keys-bg: #061820de;
+  --color-key: #244940;
+  --color-key-operators: #4c5f77;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--color-bg);
+  color: var(--color-font);
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 20px;
+}
+
+.calc-frame {
+  width: 400px;
+  max-width: 85%;
+  height: 550px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 7px 7px 14px #828282, -7px -7px 14px #ffffff;
+}
+
+.display-frame {
+  height: 150px;
+  width: 100%;
+  background-color: var(--color-display-frame);
+  padding: 40px 30px;
+  position: relative;
+  text-align: right;
+}
+
+.display {
+  opacity: 0.8;
+  height: 40px;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  color: var(--color-font-display);
+  padding: 0 13px;
+  font-size: 30px;
+}
+
+.border {
+  background-color: var(--color-display);
+  height: 100%;
+  width: 100%;
+  padding-right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: var(--color-font-display);
+  border: 2px solid var(--color-border);
+  box-shadow: inset 5px 5px 7px #949494, inset -5px -5px 7px #ffffff;
+}
+
+.temp {
+  display: none;
+}
+
+.keys {
+  background-color: var(--color-keys-bg);
+  height: calc(100% - 150px);
+  display: grid;
+  grid-template: repeat(5, 1fr) / repeat(4, 1fr);
+  gap: 10px;
+  padding: 40px;
+}
+
+.key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: var(--color-key);
+  transform: scale(1);
+  transition: all 0.1s;
+}
+
+.key:hover {
+  cursor: pointer;
+}
+
+.key:active {
+  transform: scale(0.985);
+}
+
+.keys .equal {
+  grid-column: 3 / 5;
+}
+
+.operator {
+  background-color: var(--color-key-operators);
+}
+
+.pressed {
+  box-shadow: 0 0 0 0 gray;
+}
